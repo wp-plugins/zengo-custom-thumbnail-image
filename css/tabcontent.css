@@ -1,0 +1,77 @@
+﻿/* Tab Content - menucool.com */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
+
+ul.tabs
+{
+    padding: 14px 40px 8px;
+    margin:0;
+    font-size: 0;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/
+     background: #326B94;
+    border:1px solid #CCC;
+    border-bottom:none;
+    border-radius: 2px 2px 0 0;
+}
+        
+ul.tabs li
+{
+    display: inline;
+    margin: 0;
+    margin-right: 2px;/*distance between tabs*/
+    font: normal 12px Verdana;
+}
+        
+ul.tabs li a
+{
+	text-decoration: none;
+	position: relative;
+	padding: 8px 22px;
+	color: #fff;
+	border-radius: 3px 3px 0 0;
+	outline:none;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+  
+        
+ul.tabs li a:hover
+{
+    text-decoration: underline;
+    color: #fff;     
+}
+        
+ul.tabs li.selected a
+{
+    position: relative;
+    top: 0px;
+    font-weight:bold;
+    background: #FFF;
+    border: 1px solid #AAA;
+    border-bottom: 1px solid #FFF;
+    color: #000;
+    padding-bottom: 14px;
+}
+
+li.selected {
+border-bottom: 20px solid #D54E21;
+} 
+        
+ul.tabs li.selected a:hover, ul.tabs li.selected a:hover
+{
+    text-decoration: none;
+}
+
+div.tabcontents
+{
+    border: 1px solid #CCC; padding: 30px;
+    border-top-color:#AAA;
+    background-color:#FFF;
+    border-radius: 0 0 2px 2px;
+}
+a:focus {
+	box-shadow: none;
+}
