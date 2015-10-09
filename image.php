@@ -2,7 +2,7 @@
 /*
 Plugin Name: Zengo Custom Thumbnail Image
 Plugin URI: http://www.zengo-web-services.com
-Version: 1.0.0
+Version: 1.0.1
 Author: Zengo Web Services
 Description: Separate Thumbnail Image from Main Image, Custom Gallery Image Size by Zengo Web Services.
 */
@@ -70,8 +70,8 @@ if(isset($_POST['edit']) && $_POST['edit'] == "MODIFY"){
 	{
 		$name = sanitize_text_field($_POST['title']);
 		$did = sanitize_text_field($_POST['did']);
-		$thumbnail = sanitize_text_field($_POST['img2']);
-		$main = sanitize_text_field($_POST['img3']);
+		$thumbnail = sanitize_text_field($_POST['img21']);
+		$main = sanitize_text_field($_POST['img31']);
 		$customthumb[$did-1] = array(
 			'title' => $name,
 			'thumbnail' => $thumbnail,
@@ -80,7 +80,6 @@ if(isset($_POST['edit']) && $_POST['edit'] == "MODIFY"){
 		$edit = "true";
 	}
 }
-
 /*Edit Code End*/
 	
 /*Add New Code Start*/
@@ -159,33 +158,14 @@ if($edit == "true"){ ?>
 ?>
   <div style="width: 95%; margin: 0 auto; padding: 40px 0 40px;">
         <ul class="tabs" data-persist="true">
-			<li><a href="#view0">Add Gallery</a></li>
             <li><a href="#view1">Upload Images</a></li>
-            <li><a href="#view2">Gallery Setting</a></li>
             <li><a href="#view3">Images Setting</a></li>
+            <li><a href="#view5">Gallery Setting</a></li>
+            <li><a href="#view2">Shortcode Generator</a></li>
 			<li><a href="#view4">How to use it?</a></li>
         </ul>
         
         <div class="tabcontents">
-            <div id="view0">
-				<h2>Add New Gallery</h2>
-                <p>
-					<div>
-						<form action="<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=add" method="post">
-							<table class="table121">
-								<tr>
-									<th align="left" class="table121">Gallery Name</th>
-									<td align="center" class="table121">:</td>
-									<td colspan="2" class="table121"><input type="text" name="title" id="title" required="required" class="regular-text">(Special charecters will be Ignored.)</td>
-								</tr>
-								<tr>
-									<td class="table121" colspan="3"> <input id="submit_button" type="submit" value="ADD" name="add_gallery" class="zengo-save-btn"></td>
-								</tr>
-							</table>
-						</form>
-					</div>
-                </p>
-			</div>
             <div id="view1">
 				<h2>Upload Images For Zengo Gallery</h2>
                 <p>
@@ -201,55 +181,64 @@ if($edit == "true"){ ?>
 										<th align="left" class="table121">Select Thumbnail Image</th>
 										<td align="center" class="table121">:</td>
 										<td class="table121"><input type="text" name="img2" id="img2" required="required" class="regular-text" value="<?php echo $Img; ?>" ><input type="button" name="upload-btn-img2" id="upload-btn-img2" class="button-primary" value="Upload Image" data-id="img2"></td>
-										<td class="table121"  align="center"><img style="height:150px;"  name="Img2" id="Img2" src="<?php echo $Img; ?>"  /> </td>
+										<td class="table121"  align="center"><img style="max-height:150px; max-width:300px;"  name="Img2" id="Img2" src="<?php echo $Img; ?>"  /> </td>
 									</tr>
 									<tr>
 										<th align="left" class="table121">Select Main Image</th>
 										<td align="center" class="table121">:</td>
 										<td class="table121"><input type="text" name="img3" id="img3" required="required" class="regular-text" value="<?php echo $Img; ?>" >
 										<input type="button" name="upload-btn-img3" id="upload-btn-img3" class="button-primary" value="Upload Image" data-id="img3"></td>
-										<td class="table121"  align="center"><img style="height:150px;"  name="Img3" id="Img3" src="<?php echo $Img; ?>"  /> </td>
+										<td class="table121"  align="center"><img style="max-height:150px; max-width:300px;"  name="Img3" id="Img3" src="<?php echo $Img; ?>"  /> </td>
 									</tr>
 									<tr>
 										<td class="table121" colspan="5"> <input id="submit_button" type="submit" value="ADD" name="add" class="zengo-save-btn"></td>
 									</tr>
 									<tr>
-										<td colspan="4"><strong>NOTE: Use shortcode:  [zengo_gallery]  to display gallery in page.</strong></td>
+										<td colspan="4"><strong>NOTE: Use shortcode Generator to display gallery in page.</strong></td>
 									</tr>
 								</table>
 							</form>
 						</div>
 				</p>
             </div>
-
-            <div id="view2">
-               <h2>Zengo Gallery Setting</h2>
+            
+            <div id="view5">
+			<h2>Zengo Gallery Setting</h2>
+			<h4>This setting will affects only when 'NORMAL' view selected in Gallery Display Style.</h4>
 				<p><?php
-					$customthumb_attribute = get_option("customthumb_attribute");
-					if(!empty($customthumb_attribute))
-					{
-						$height = $customthumb_attribute['height'];
-						$width = $customthumb_attribute['width'];
-					}
-				?>
-				<form name="form1" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=setting" method="post">
-				<table class="table121">
-				<tr>
-					<th class="table121">Height :</th>
-					<td class="table121"><input type="text" required name="zengo-gallery-height" id="zengo-gallery-height" value="<?php echo $height; ?>">px <strong>(Example: 100, 200, auto)</strong></td>
-				</tr>
-				<tr>
-					<th class="table121">Width :</th>
-					<td class="table121"><input type="text" required name="zengo-gallery-width" id="zengo-gallery-width" value="<?php echo $width; ?>">px <strong>(Example: 100, 200, auto)</strong></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" name="setting" value="SAVE" class="zengo-save-btn"></td>
-				</tr>
-				</table>
-				</form>
+						$customthumb_attribute = get_option("customthumb_attribute");
+						if(!empty($customthumb_attribute))
+						{
+							$height = $customthumb_attribute['height'];
+							$width = $customthumb_attribute['width'];
+						}
+					?>
+					<form name="form1" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=setting" method="post">
+						<table class="table121">
+							<tr>
+								<th class="table121">Height :</th>
+								<td class="table121"><input type="text" required name="zengo-gallery-height" id="zengo-gallery-height" value="<?php echo $height; ?>">px <strong>(Example: 100, 200, auto)</strong></td>
+							</tr>
+							<tr>
+								<th class="table121">Width :</th>
+								<td class="table121"><input type="text" required name="zengo-gallery-width" id="zengo-gallery-width" value="<?php echo $width; ?>">px <strong>(Example: 100, 200, auto)</strong></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="submit" name="setting" value="SAVE" class="zengo-save-btn"></td>
+							</tr>
+						</table>
+					</form>
 				</p>
-				</div>
-				<div id="view3">
+			</div>
+				
+			
+			
+            <div id="view2">
+				<h2>Shortcode Generator</h2>
+                <p><?php require('shortcode.php'); ?></p>
+			</div>
+
+            <div id="view3">
 					<h2>Zengo Gallery Images Setting</h2>
 					<p>
 					<?php
@@ -267,14 +256,14 @@ if($edit == "true"){ ?>
 										<tr>
 											<th align="left" class="table121">Select Thumbnail Image</th>
 											<td align="center" class="table121">:</td>
-											<td class="table121"><input type="text" name="img2" id="img2" required="required" class="regular-text" value="<?php echo $thumbnail; ?>" ><input type="button" name="upload-btn-img2" id="upload-btn-img2" class="button-primary" value="Upload Image" data-id="img2"></td>
-											<td class="table121"  align="center"><img style="height:150px;"  name="Img2" id="Img2" src="<?php echo $thumbnail; ?>"  /> </td>
+											<td class="table121"><input type="text" name="img21" id="img21" required="required" class="regular-text" value="<?php echo $thumbnail; ?>" ><input type="button" name="upload-btn-img21" id="upload-btn-img21" class="button-primary" value="Upload Image" data-id="img21"></td>
+											<td class="table121"  align="center"><img style="max-height:150px; max-width:300px;"  name="Img21" id="Img21" src="<?php echo $thumbnail; ?>"  /> </td>
 										</tr>
 										<tr>
 											<th align="left" class="table121">Select Main Image</th>
 											<td align="center" class="table121">:</td>
-											<td class="table121"><input type="text" name="img3" id="img3" required="required" class="regular-text" value="<?php echo $main; ?>" ><input type="button" name="upload-btn-img3" id="upload-btn-img3" class="button-primary" value="Upload Image" data-id="img3"></td>
-											<td class="table121"  align="center"><img style="height:150px;"  name="Img3" id="Img3" src="<?php echo $main; ?>"  /> </td>
+											<td class="table121"><input type="text" name="img31" id="img31" required="required" class="regular-text" value="<?php echo $main; ?>" ><input type="button" name="upload-btn-img31" id="upload-btn-img31" class="button-primary" value="Upload Image" data-id="img31"></td>
+											<td class="table121"  align="center"><img style="max-height:150px; max-width:300px;" id="Img31" src="<?php echo $main; ?>"  /> </td>
 										</tr>
 										<tr>
 											<td class="table121" colspan="5"> <input id="submit_button" type="submit" value="MODIFY" name="edit" class="zengo-save-btn"><a href="<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=cancel" style="text-decoration:none; cursor:pointer;">   <input type="button" name="cancel" value="CANCEL" type="button" class="zengo-save-btn" style="cursor:pointer;"></a></td>
@@ -310,8 +299,8 @@ if($edit == "true"){ ?>
 								<tr>
 									<td align="center"><?php echo $i; ?></td>
 									<td><?php echo $customthumb[title]; ?></td>
-									<td align="center"><img style="height:150px;" align="center" src="<?php echo $customthumb[thumbnail]; ?>" ></td>
-									<td align="center"><img style="height:150px;" align="center" src="<?php echo $customthumb[image]; ?>" ></td>
+									<td align="center"><img style="height:100px; max-width:300px;" align="center" src="<?php echo $customthumb[thumbnail]; ?>" ></td>
+									<td align="center"><img style="height:100px; max-width:300px;" align="center" src="<?php echo $customthumb[image]; ?>" ></td>
 									<td align="center"><a href='<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=edit&dname=<?php echo $customthumb[title]; ?>&did=<?php echo $i; ?>'>Edit</a></td>
 									<td align="center"><a href='<?php echo $_SERVER['PHP_SELF']; ?>?page=zengo-gallery&action=delete&dname=<?php echo $customthumb[title]; ?>&did=<?php echo $i; ?>'>Delete</a></td>
 								</tr>
@@ -333,9 +322,7 @@ if($edit == "true"){ ?>
 		</div>
 		<div id="view4">
 			<h3>How to use it?</h3>
-			<?php $val = "&lt;?php echo do_shortcode('[zengo_gallery]'); ?&gt;";?>
-			<p>Please copy below shortcode where you want to display the gallery.<br/>[zengo_gallery]</p>
-			<p>To use in template file of WordPress:<br/><?php print($val); ?></p>
+			<p>Generate Shortcode from 'Shortcode Generator'.<br/> Copy generated shortcode and paste it to the page where you want to display gallery.</p>
 		</div>
 	</div>
 </div>

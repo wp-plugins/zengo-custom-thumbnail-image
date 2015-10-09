@@ -59,21 +59,22 @@
 }
 .lb-overlay{
 	width: 0px;
-	height: 0px;
-	position: fixed;
-	overflow: hidden;
-	left: 0px;
-	top: 0px;
-	padding: 0px;
-	z-index: 99;
-	text-align: center;
-	background: transparent;
-	background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(255,255,255,1) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(255,255,255,1)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
-	background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
+    height: 0px;
+    position: fixed;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    z-index: 99;
+    text-align: center;
+    /*background: rgba(0, 0, 0, 0.05);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.67) 0%,rgba(140, 140, 140, 1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);
+    background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);*/
+    background: rgba(0, 0, 0, 0.74) none repeat scroll 0% 0%;
 }
 .lb-overlay > div{
 	position: relative;
@@ -100,7 +101,6 @@
 	width: 260px;
 }
 .lb-overlay a.lb-close{
-	background: #ccc;
 	z-index: 1001;
 	color: #fff;
 	position: absolute;
@@ -109,8 +109,8 @@
 	font-size: 15px;
 	line-height: 26px;
 	text-align: center;
-	width: 50px;
-	height: auto;
+	width: 80px;
+	height: 30px;
 	overflow: hidden;
 	margin-left: -25px;
 	opacity: 0;
@@ -118,11 +118,20 @@
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
 	-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
-	box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.7);
+}
+.lb-overlay a.lb-close:hover{
+	margin-left: -24px;
+	margin-top: -1px;
+	box-shadow: 0px 1px 2px rgba(0,0,0,2.9);
+}
+.lb-overlay h3{
+    color: #fff;
+}
 }
 .lb-overlay img{
 	/* height: 100%; For Opera max-height does not seem to work */
-	max-height: 100%;
+	max-height: 400px;
 	position: relative;
 	opacity: 0;
 	filter: alpha(opacity=0); /* internet explorer */
@@ -135,6 +144,8 @@
 	-o-transition: opacity 0.5s linear;
 	-ms-transition: opacity 0.5s linear;
 	transition: opacity 0.5s linear;
+	padding-bottom: 0px !important;
+    margin-bottom: 1px;
 }
 .lb-prev, .lb-next{
 	text-indent: -9000px;
@@ -172,6 +183,7 @@
 	opacity: 1;
 	filter: alpha(opacity=99); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+    max-height: 470px;
 }
 /* 
 	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens 
@@ -179,4 +191,9 @@
 */
 x:-o-prefocus, .lb-overlay img {
     height: 100%;
+}
+.entry-content {
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0px;
 }
