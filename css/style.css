@@ -177,6 +177,7 @@
 	bottom: 0px;
 	right: 0px;
 	padding: 80px 100px 120px 100px;
+	z-index: 9999999999;
 }
 .lb-overlay:target img,
 .lb-overlay:target a.lb-close{
