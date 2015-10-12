@@ -65,8 +65,8 @@ You need at least WordPress version 3.0.2 or higher. If you use WordPress lower 
 = 1.0.1 =
 
 What's New in this version?
-- 2 Gallery Views
-- One click shortcode Generator in Admin Panel
-- Effects
-- Better Gallery View
-- Hover Effects
+* 2 Gallery Views
+* One click shortcode Generator in Admin Panel
+* Effects
+* Better Gallery View
+* Hover Effects
