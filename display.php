@@ -59,8 +59,8 @@ if($display_style == "pinterest"){
 	<?php
 }
 else{
-	$height = "100px";
-	$width = "100px";
+	$height = "100";
+	$width = "100";
 	$customthumb_attribute = get_option("customthumb_attribute");
 	if(!empty($customthumb_attribute))
 	{
