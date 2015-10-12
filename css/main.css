@@ -106,6 +106,6 @@ table {
   border: none;
 }
 
-.z_sht_code{
-	width: 80%;
+input#sht_code{
+    width: 80%;
 }
