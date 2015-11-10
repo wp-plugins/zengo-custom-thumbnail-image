@@ -1,18 +1,18 @@
-.lb-album{
+.zengo-lb-album{
 	width: 100%;
 	margin: 0 auto;
 	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
 }
-.lb-album li{
+.zengo-lb-album li{
 	float: left;
 	margin: 5px;
 	position: relative;
 }
-.lb-album li > a,
-.lb-album li > a img{
+.zengo-lb-album li > a,
+.zengo-lb-album li > a img{
 	display: block;
 }
-.lb-album li > a{
+.zengo-lb-album li > a{
 	position: relative;
 	padding: 2px;
 	background: transparent;
@@ -23,9 +23,9 @@
 	-webkit-border-radius: 4px;
 	border-radius: 4px 4px 4px 4px;
 }
-.lb-album li > a span{
+.zengo-lb-album li > a span{
 	position: absolute;
-	margin: 2px;
+	margin: 20px 0px;
 	top: 2px;
 	left: 2px;
 	text-align: center;
@@ -33,8 +33,8 @@
     text-overflow: ellipsis;
 	color: rgba(27,54,81,0.8);
 	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
-	font-size: 16px;
-	z-index: 1;
+	font-size: 20px;
+	z-index: 111;
 	opacity: 0;
 	filter: alpha(opacity=0); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
@@ -51,13 +51,12 @@
 	-ms-transition: opacity 0.3s linear;
 	transition: opacity 0.3s linear;
 }
-.lb-album li > a:hover span{
+.zengo-lb-album li > a:hover span{
 	opacity: 1;
-	margin: 2px;
 	filter: alpha(opacity=99); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
 }
-.lb-overlay{
+.zengo-lb-overlay{
 	width: 0px;
     height: 0px;
     position: fixed;
@@ -76,7 +75,7 @@
     background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(140, 140, 140, 1) 100%);*/
     background: rgba(0, 0, 0, 0.74) none repeat scroll 0% 0%;
 }
-.lb-overlay > div{
+.zengo-lb-overlay > div{
 	position: relative;
 	color: rgba(27,54,81,0.8);
 	width: 550px;
@@ -84,23 +83,23 @@
 	margin: 40px auto 0px auto;
 	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
 }
-.lb-overlay div h3 span,
-.lb-overlay div{
+.zengo-lb-overlay div h3 span,
+.zengo-lb-overlay div{
 	font-size: 26px;
 	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 	font-style: italic;
 }
-.lb-overlay div h3 span{
+.zengo-lb-overlay div h3 span{
 	display: block;
 	line-height: 6px;
 }
-.lb-overlay div p{
+.zengo-lb-overlay div p{
 	font-size: 14px;
 	text-align: left;
 	float: left;
 	width: 260px;
 }
-.lb-overlay a.lb-close{
+.zengo-lb-overlay a.zengo-lb-close{
 	z-index: 1001;
 	color: #fff;
 	position: absolute;
@@ -120,16 +119,16 @@
 	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
 	box-shadow: 0px 1px 2px rgba(0,0,0,0.7);
 }
-.lb-overlay a.lb-close:hover{
+.zengo-lb-overlay a.zengo-lb-close:hover{
 	margin-left: -24px;
 	margin-top: -1px;
 	box-shadow: 0px 1px 2px rgba(0,0,0,2.9);
 }
-.lb-overlay h3{
+.zengo-lb-overlay h3{
     color: #fff;
 }
 }
-.lb-overlay img{
+.zengo-lb-overlay img{
 	/* height: 100%; For Opera max-height does not seem to work */
 	max-height: 400px;
 	position: relative;
@@ -147,7 +146,7 @@
 	padding-bottom: 0px !important;
     margin-bottom: 1px;
 }
-.lb-prev, .lb-next{
+.zengo-lb-prev, .zengo-lb-next{
 	text-indent: -9000px;
 	position: absolute;
 	top: -32px;
@@ -158,20 +157,20 @@
 	filter: alpha(opacity=80); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=80)"; /*IE8*/
 }
-.lb-prev:hover, .lb-next:hover{
+.zengo-lb-prev:hover, .zengo-lb-next:hover{
 	opacity: 1;
 	filter: alpha(opacity=99); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
 }
-.lb-prev{
+.zengo-lb-prev{
 	margin-left: -30px;
 	background: transparent url(../images/arrows.png) no-repeat top left;
 }
-.lb-next{
+.zengo-lb-next{
 	margin-left: 6px;
 	background: transparent url(../images/arrows.png) no-repeat top right;
 }
-.lb-overlay:target {
+.zengo-lb-overlay:target {
 	width: auto;
 	height: auto;
 	bottom: 0px;
@@ -179,8 +178,8 @@
 	padding: 80px 100px 120px 100px;
 	z-index: 9999999999;
 }
-.lb-overlay:target img,
-.lb-overlay:target a.lb-close{
+.zengo-lb-overlay:target img,
+.zengo-lb-overlay:target a.zengo-lb-close{
 	opacity: 1;
 	filter: alpha(opacity=99); /* internet explorer */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
@@ -190,10 +189,10 @@
 	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens 
 	http://bricss.net/post/11230266445/css-hack-to-target-opera 
 */
-x:-o-prefocus, .lb-overlay img {
+x:-o-prefocus, .zengo-lb-overlay img {
     height: 100%;
 }
-.entry-content {
+.zengo-entry-content {
     max-width: 100%;
     min-width: 100%;
     padding: 0px;

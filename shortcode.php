@@ -24,7 +24,7 @@
 						<input type="radio" id="352" value="normal" name="display_style" checked>
 						<label for="352">Normal</label>
 						<input type="radio" id="351" value="pinterest" name="display_style">
-						<label for="351">Pinterest</label>
+						<label for="351">pinterest</label>
 				</td>
 			</tr>
 			<tr>
