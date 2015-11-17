@@ -19,6 +19,8 @@ You can assign the proper designed version of the main image as thumbnail. Or yo
 
 Limitation: Zengo Custom Thumbnail Image plug-in can manage only one Gallery.
 
+For any Kind of Support Please contact: http://www.zengo-web-services.com/
+
 
 == Installation ==
 
